@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Temperature Conversion</title>
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous">
+	<style>
+		body {
+			background-color: #cf8787;
+			color: #fff;
+		}
+		table {
+			border: 2px solid #fff;
+			border-collapse: collapse;
+			margin: 0 auto;
+			margin-top: 20px;
+			width: 80%;
+			text-align: center;
+		}
+		th, td {
+			padding: 5px;
+			border: 2px solid #fff;
+		}
+		h1, h2 {
+			text-align: center;
+			margin-top: 20px;
+		}
+		form {
+			text-align: center;
+			margin-top: 20px;
+		}
+	</style>
+</head>
+<body class="bg-custom">
+	<div class="container">
+		<h1>Temperature Conversion</h1>
+		<h2>Date: <span id="date"></span></h2>
+
+		<script>
+			const DT = new Date();
+			document.getElementById('date').innerHTML = DT.toDateString();
+		</script>
+
+        
+		<hr>
+		<table>
+			<thead>
+				<tr>
+					<th>Celsius (°C)</th>
+						<th>Fahrenheit (°F)</th>
+						<th>Description</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr>
+					<td>-273.15</td>
+						<td>-459.67</td>
+						<td>Absolute 0 Degrees Temperature</td>
+				</tr>
+				<tr>
+					<td>0</td>
+						<td>32.0</td>
+						<td>Freezing Point of Water</td>
+				</tr>
+				<tr>
+					<td>21</td>
+						<td>69.8</td>
+						<td>Room Temperature</td>
+				</tr>
+				<tr>
+					<td>37</td>
+						<td>98.6</td>
+						<td>Human Body temperature </td>
+				</tr>
+				<tr>
+					<td>100</td>
+						<td>212.0</td>
+						<td>Boiling Point of Water</td>
+				</tr>
+			</tbody>
+		</table>
+		
+		<form>
+
+
+
+			<label>Enter Fahrenheit:</label>
+		<input type="number" id="fa">
+
+		<button type="button" class="btn btn-success" onclick="Convert()">Convert</button>
+
+
+
+		<div>
+			<center>
+				<label><b>Converted value:</b></label>
+				<span id="result"></span>
+			</center>
+		</div>
+
+		<br><br><br>
+
+
+		<script>
+			function Convert() {
+				let fa = document.getElementById('fa').value;
+				let celsius = (fa - 32) * 5 / 9;
+				let message = "The converted value is: " + celsius.toFixed(2) + " °C";
+				alert(message);
+				document.getElementById('result').innerHTML = message;
+			}
+		</script>
+
+<script>
+    function celsiusToFahrenheit(event) {
+        let celsius = document.getElementById('celsius').value;
+        let fahrenheit = (celsius * 9 / 5) + 32;
+        let message2 = "The converted value is: " + fahrenheit.toFixed(2) + " °f";
+				alert(message2);
+				document.getElementById('result2').innerHTML = message2;
+			
+    }
+</script>
+
+<div>
+	<center>
+		<label>Enter Celsius:</label>
+    	<input type="number" id="celsius">
+    	<button type="button" onclick="celsiusToFahrenheit(event)">Convert</button>
+	</center>
+    
+</div>
+<div>
+	<center>
+		<label> <b>Converted value:</b></label>
+		<span id="result2"></span>
+	</center>
+   
+</div>
+	</div>
+
+    <script>
+        function displayTime() {
+          const now = new Date();
+          const time = now.toLocaleTimeString();
+          document.getElementById('current-time').textContent = time;
+        }
+        setInterval(displayTime, 1000);
+      </script>
+      
+      <br><br>
+      <center><div id="current-time"></div></center>
+
+    
+    </body>
+</html>
+	
